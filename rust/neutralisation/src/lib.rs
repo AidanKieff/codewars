@@ -13,6 +13,14 @@ fn neutralise(s1: &str, s2: &str) -> String {
     result
 }
 
+/*
+better: 
+fn neutralise(s1: &str, s2: &str) -> String {
+    s1.chars().zip(s2.chars()).map(|(a,b)| match a==b {true => a, _ => '0',}).collect()
+}
+
+*/
+
 
 #[cfg(test)]
 mod tests {
