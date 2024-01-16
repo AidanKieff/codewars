@@ -4,12 +4,10 @@ fn xo(string: &'static str) -> bool {
     let string = string.to_lowercase();
 
     for i in string.chars() {
-        if i == 'x' {
-            x_count += 1;
-        } else if i == 'o' {
-            o_count += 1;
-        } else {
-            continue
+        match i {
+            'x' => x_count += 1,
+            'o' => o_count += 1,
+            _ => continue,
         }
     }
 
