@@ -1,22 +1,37 @@
 
+// fn xo(string: &'static str) -> bool {
+//     let (mut o_count, mut x_count) = (0, 0);
+//     let string = string.to_lowercase();
+
+//     for i in string.chars() {
+//         match i {
+//             'x' => x_count += 1,
+//             'o' => o_count += 1,
+//             _ => continue,
+//         }
+//     }
+
+//     if x_count == o_count {
+//         return true;
+//     } else {
+//         return false;
+//     }
+//   }
+
+
+// better function-----------------------------------
+
+
 fn xo(string: &'static str) -> bool {
-    let (mut o_count, mut x_count) = (0, 0);
     let string = string.to_lowercase();
 
-    for i in string.chars() {
-        match i {
-            'x' => x_count += 1,
-            'o' => o_count += 1,
-            _ => continue,
-        }
-    }
+    let o_count = string.chars().filter(|&c| c == 'o' ).count();
+    let x_count = string.chars().filter(|&c| c == 'x' ).count();
+    
+    return o_count == x_count
+}
 
-    if x_count == o_count {
-        return true;
-    } else {
-        return false;
-    }
-  }
+
 
 #[cfg(test)]
 
