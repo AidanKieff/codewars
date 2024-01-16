@@ -1,9 +1,26 @@
 
 fn xo(string: &'static str) -> bool {
-    false
+    let (mut o_count, mut x_count) = (0, 0);
+    let string = string.to_lowercase();
+
+    for i in string.chars() {
+        if i == 'x' {
+            x_count += 1;
+        } else if i == 'o' {
+            o_count += 1;
+        } else {
+            continue
+        }
+    }
+
+    if x_count == o_count {
+        return true;
+    } else {
+        return false;
+    }
   }
 
-#[cfg(tests)]
+#[cfg(test)]
 
 #[test]
 fn returns_expected() {
